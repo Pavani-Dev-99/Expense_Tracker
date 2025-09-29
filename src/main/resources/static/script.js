@@ -8,6 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
   let incomes = [];
 
 
+  let recentlyDeletedExpenses = [];
+let recentlyDeletedIncomes = [];
+
+
+
   async function fetchExpenses() {
   try {
     const response = await fetch(`${expensesUrl}/all`);
@@ -38,9 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalExpenses = expenses.reduce((acc, exp) => acc + Math.abs(exp.amount), 0);
     const balance = totalIncome - totalExpenses;
 
-    document.getElementById("total-income").textContent = `$${totalIncome.toFixed(2)}`;
-    document.getElementById("total-expenses").textContent = `$${totalExpenses.toFixed(2)}`;
-    document.getElementById("balance").textContent = `$${balance.toFixed(2)}`;
+    document.getElementById("total-income").textContent = `${totalIncome.toFixed(2)}`;
+    document.getElementById("total-expenses").textContent = `${totalExpenses.toFixed(2)}`;
+    document.getElementById("balance").textContent = `${balance.toFixed(2)}`;
 
     const transactions = [...incomes.map(i => ({ ...i, category: 'Income' })), ...expenses]
       .sort((a, b) => new Date(b.date) - new Date(a.date))
@@ -57,10 +62,14 @@ document.addEventListener('DOMContentLoaded', () => {
         <td>${tx.category}</td>
         <td>${tx.description}</td>
         <td style="color: ${tx.amount < 0 ? 'red' : 'green'};">
-          $${Math.abs(tx.amount).toFixed(2)}
+          ${Math.abs(tx.amount).toFixed(2)}
         </td>
       `;
       tbody.appendChild(row);
+
+      
+
+
     });
   }
 
@@ -80,6 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <td><button data-id="${exp.id}" class="delete-expense">Delete</button></td>
       `;
       tbody.appendChild(row);
+
+      
     });
 
 
@@ -95,6 +106,10 @@ document.addEventListener('DOMContentLoaded', () => {
           });
           if (!response.ok) throw new Error('Failed to delete expense');
           await fetchExpenses();
+
+//           recentlyDeletedExpenses.unshift(expenseToDelete); // add to front
+// if (recentlyDeletedExpenses.length > 5) recentlyDeletedExpenses.pop(); // keep last 5
+
         } catch (error) {
           alert('Error deleting expense: ' + error.message);
         }
@@ -136,6 +151,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 if (!response.ok) throw new Error('Failed to delete income');
                 await fetchIncomes();
+
+
+//                 recentlyDeletedIncomes.unshift(incomeToDelete);
+// if (recentlyDeletedIncomes.length > 5) recentlyDeletedIncomes.pop();
+
+
             } catch (error) {
                 alert('Error deleting income: ' + error.message);
             }

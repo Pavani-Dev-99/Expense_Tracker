@@ -22,9 +22,12 @@ import com.expense_tracker.Services.Expense.ExpenseService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 
+@CrossOrigin("*")
+
+
 @RestController
 @RequestMapping("/api/expenses")
-@CrossOrigin("*")
+// @CrossOrigin("*")
 public class ExpenseController {
     private final ExpenseService expenseService;
 

@@ -11,10 +11,12 @@ import com.expense_tracker.Services.Stats.StatsService;
 
 import lombok.RequiredArgsConstructor;
 
+
+@CrossOrigin("*")
+
 @RestController
 @RequestMapping("/api/stats")
 @RequiredArgsConstructor
-@CrossOrigin("*")
 
 public class StatsController {
 

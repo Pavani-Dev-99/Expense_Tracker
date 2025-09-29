@@ -19,10 +19,13 @@ import com.expense_tracker.Services.Income.IncomeService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 
+
+@CrossOrigin("*")
+
 @RestController
 @RequestMapping("/api/incomes")
 @RequiredArgsConstructor
-@CrossOrigin("*")
+// @CrossOrigin("*")
 public class IncomeController {
 
     private final IncomeService incomeService;
@@ -73,7 +76,7 @@ public class IncomeController {
     }
 
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteIncome(@PathVariable long id){
         try{
             incomeService.deleteIncome(id);

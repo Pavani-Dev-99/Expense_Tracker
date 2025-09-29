@@ -21,23 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 
 
-//   async function fetchExpenses() {
-//     try {
-//       const response = await fetch(`${expensesUrl}/all`);
-//       if (!response.ok) throw new Error('Failed to fetch expenses');
-//       expenses = await response.json();
-//       renderExpenseList();
-//       renderDashboard();
-//     } catch (error) {
-//       console.error('Error loading expenses:', error);
-//     }
-//   }
-
   async function fetchIncomes() {
     try {
       const response = await fetch(`${incomesUrl}/all`);
       if (!response.ok) throw new Error('Failed to fetch incomes');
       incomes = await response.json();
+      renderIncomeList();
       renderDashboard();
     } catch (error) {
       console.error('Error loading incomes:', error);
@@ -111,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       };
     });
-}
+  }
 
 
     function renderIncomeList() {

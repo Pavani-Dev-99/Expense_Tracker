@@ -19,7 +19,7 @@ let recentlyDeletedIncomes = [];
     if (!response.ok) throw new Error('Failed to fetch expenses');
     expenses = await response.json();
     renderExpenseList();
-    renderDashboard();  // Keep this here to update dashboard whenever expenses updated
+    renderDashboard();  // To update dashboard whenever expenses updated
   } catch (error) {
     console.error('Error loading expenses:', error);
   }

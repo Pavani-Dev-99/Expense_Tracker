@@ -7,50 +7,6 @@
 
     <!-- <script src="script.js"></script> -->
      <link rel="stylesheet" href="style.css">
-
-
-  <style>
-    /* body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f5f7fa;
-    }
-    header {
-      background: #007bff;
-      color: white;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    main {
-      max-width: 900px;
-      margin: 20px auto;
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    @media (max-width: 600px) {
-      nav {
-        display: flex;
-        flex-wrap: wrap;
-      }
-      nav a {
-        margin: 5px 10px;
-      }
-    } */
-  </style>
 </head>
 <body>
   <header>
@@ -65,7 +21,6 @@
     </nav>
   </header>
   <main id="main-content">
-    <!-- Section content will be dynamically loaded here -->
 
     <section id="dashboard">
   <div style="display:flex; justify-content: space-around; margin-bottom: 20px;">
@@ -174,8 +129,8 @@
           placeholder="Add any additional details about the expense..."
           style="padding: 0.6rem 1rem; width: 100%; border-radius: 6px; border: 1px solid #d1d5db; resize: vertical;"></textarea>
       </div>
-      
-      <!-- File Attachment (Optional) -->
+
+      <!-- Receipt Upload -->
       <div style="margin-bottom: 1.8rem;">
         <label for="expense-receipt" style="font-weight: 500; display:block; margin-bottom: 0.4rem;">Attach Receipt (optional)</label>
         <input 
@@ -194,31 +149,6 @@
     </form>
   </div>
 </section>
-
-
-
-
-<!-- <section id="add-expense">
-<div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-  <h2>Add Expense</h2>
-  <form id="expense-form" style="max-width: 100%;">
-    <label>Title:<br /><input type="text" id="expense-title" required /></label><br />
-    <label>Amount:<br /><input type="number" id="expense-amount" min="0.01" step="0.01" required /></label><br />
-    <label>Category:<br />
-      <select id="expense-category" required>
-        <option value="">Select</option>
-        <option value="Food">Food</option>
-        <option value="Travel">Travel</option>
-        <option value="Shopping">Shopping</option>
-        <option value="Other">Other</option>
-      </select>
-    </label><br />
-    <label>Date:<br /><input type="date" id="expense-date" required /></label><br />
-    <label>Description:<br/><textarea rows="5"></textarea>></label><br/>
-    <button type="submit">Add Expense</button>
-  </form>
-  </div>
-</section> -->
 
 
 <section id="add-income">
@@ -276,20 +206,6 @@
     </form>
   </div>
 </section>
-
-
-
-
-<!-- <section id="add-income">
-  <h2>Add Income</h2>
-  <form id="income-form">
-    <label>Title:<br /><input type="text" id="income-title" required /></label><br />
-    <label>Amount:<br /><input type="number" id="income-amount" min="0.01" step="0.01" required /></label><br />
-    <label>Date:<br /><input type="date" id="income-date" required /></label><br />
-    <label>Description:<br/><textarea rows="5"></textarea></label><br/>
-    <button type="submit">Add Income</button>
-  </form>
-</section> -->
 
 
 <section id="expense-list">
@@ -368,7 +284,7 @@
     const ctxCategory = document.getElementById('expenses-category-chart').getContext('2d');
     const ctxTime = document.getElementById('expenses-time-chart').getContext('2d');
 
-    // Placeholder sample data for categories and time, to be replaced with your actual data
+    // Placeholder sample data for categories and time, to be replaced with actual data
     const sampleCategoryData = {
       weekly: { labels: ['Food', 'Travel', 'Shopping', 'Other'], data: [120, 90, 50, 30] },
       monthly: { labels: ['Food', 'Travel', 'Shopping', 'Other'], data: [480, 360, 200, 120] },
@@ -406,7 +322,7 @@
           responsive: true,
           plugins: {
             legend: {
-              display: type !== 'bar' // Show legend except for bar charts
+              display: type !== 'bar' 
             },
             title: {
               display: true,
@@ -448,20 +364,7 @@
 </section>
 
 
-
-
-<!-- <section id="reports">
-  <h2>Reports</h2>
-  <canvas id="expenses-category-chart" width="400" height="300"></canvas>
-  <canvas id="expenses-time-chart" width="400" height="300"></canvas>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</section> -->
-
-
-
-
   </main>
-  <!-- <script src="app.js"></script> -->
 
     <script src="script.js"></script>
 

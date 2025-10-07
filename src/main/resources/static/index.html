@@ -6,10 +6,11 @@
   <title>Expense Tracker</title>
 
     <!-- <script src="script.js"></script> -->
+     <link rel="stylesheet" href="style.css">
 
 
   <style>
-    body {
+    /* body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
@@ -48,7 +49,7 @@
       nav a {
         margin: 5px 10px;
       }
-    }
+    } */
   </style>
 </head>
 <body>
@@ -100,9 +101,107 @@
 </section>
 
 
+
 <section id="add-expense">
+  <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%; margin: 0 auto;">
+    <h2 style="margin-bottom: 1.5rem;">Add New Expense</h2>
+    <form id="expense-form" style="width: 100%; max-width: 500px; background: #fafbfc; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.04); padding: 2rem;">
+      
+      <!-- Title Input -->
+      <div style="margin-bottom: 1.1rem;">
+        <label for="expense-title" style="font-weight: 500; display:block; margin-bottom: 0.37rem;">Title</label>
+        <input 
+          type="text" 
+          id="expense-title" 
+          name="title" 
+          required 
+          placeholder="E.g., Grocery Shopping"
+          style="padding: 0.6rem 1rem; width: 100%; border-radius: 6px; border: 1px solid #d1d5db;"/>
+      </div>
+      
+      <!-- Amount Input -->
+      <div style="margin-bottom: 1.1rem;">
+        <label for="expense-amount" style="font-weight: 500; display:block; margin-bottom: 0.37rem;">Amount (<span style="font-size: 0.92em;">INR</span>)</label>
+        <input 
+          type="number" 
+          id="expense-amount" 
+          name="amount"
+          min="0.01" 
+          step="0.01" 
+          required 
+          placeholder="E.g., 650.00"
+          style="padding: 0.6rem 1rem; width: 100%; border-radius: 6px; border: 1px solid #d1d5db;"/>
+      </div>
+      
+      <!-- Category Selector -->
+      <div style="margin-bottom: 1.1rem;">
+        <label for="expense-category" style="font-weight: 500; display:block; margin-bottom: 0.37rem;">Category</label>
+        <select 
+          id="expense-category" 
+          name="category" 
+          required
+          style="padding: 0.6rem 1rem; width: 100%; border-radius: 6px; border: 1px solid #d1d5db;">
+          <option value="">-- Select Category --</option>
+          <option value="Food">Food</option>
+          <option value="Travel">Travel</option>
+          <option value="Shopping">Shopping</option>
+          <option value="Utilities">Utilities</option>
+          <option value="Entertainment">Entertainment</option>
+          <option value="Health">Health</option>
+          <option value="Education">Education</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      
+      <!-- Date Input -->
+      <div style="margin-bottom: 1.1rem;">
+        <label for="expense-date" style="font-weight: 500; display:block; margin-bottom: 0.37rem;">Date</label>
+        <input 
+          type="date" 
+          id="expense-date" 
+          name="date" 
+          required 
+          style="padding: 0.6rem 1rem; width: 100%; border-radius: 6px; border: 1px solid #d1d5db;"/>
+      </div>
+      
+      <!-- Description Textarea -->
+      <div style="margin-bottom: 1.5rem;">
+        <label for="expense-description" style="font-weight: 500; display:block; margin-bottom: 0.37rem;">Description</label>
+        <textarea 
+          rows="5"
+          id="expense-description"
+          name="description"
+          placeholder="Add any additional details about the expense..."
+          style="padding: 0.6rem 1rem; width: 100%; border-radius: 6px; border: 1px solid #d1d5db; resize: vertical;"></textarea>
+      </div>
+      
+      <!-- File Attachment (Optional) -->
+      <div style="margin-bottom: 1.8rem;">
+        <label for="expense-receipt" style="font-weight: 500; display:block; margin-bottom: 0.4rem;">Attach Receipt (optional)</label>
+        <input 
+          type="file" 
+          id="expense-receipt" 
+          name="receipt"
+          accept=".jpg,.jpeg,.png,.pdf"
+          style="padding: 0.45rem 0;"/>
+        <small style="color: #8b8f96; font-size: 0.93em;">Max file size: 2MB. Formats: JPG, PNG, PDF.</small>
+      </div>
+      
+      <!-- Submit Button -->
+      <button type="submit" style="width: 100%; background-color: #2563eb; color: #fff; border: none; border-radius: 6px; padding: 0.85rem 1rem; font-size: 1.05em; font-weight: 600; box-shadow: 0 1.5px 4px rgba(37,99,235,0.06); cursor:pointer;">
+        Add Expense
+      </button>
+    </form>
+  </div>
+</section>
+
+
+
+
+<!-- <section id="add-expense">
+<div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
   <h2>Add Expense</h2>
-  <form id="expense-form">
+  <form id="expense-form" style="max-width: 100%;">
     <label>Title:<br /><input type="text" id="expense-title" required /></label><br />
     <label>Amount:<br /><input type="number" id="expense-amount" min="0.01" step="0.01" required /></label><br />
     <label>Category:<br />
@@ -118,10 +217,70 @@
     <label>Description:<br/><textarea rows="5"></textarea>></label><br/>
     <button type="submit">Add Expense</button>
   </form>
-</section>
+  </div>
+</section> -->
 
 
 <section id="add-income">
+  <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%; margin: 0 auto;">
+    <h2 style="margin-bottom: 1.5rem;">Add New Income</h2>
+    <form id="income-form" style="width: 100%; max-width: 500px; background: #fafbfc; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.04); padding: 2rem;">
+      
+      <div style="margin-bottom: 1.1rem;">
+        <label for="income-title" style="font-weight: 500; display:block; margin-bottom: 0.37rem;">Title</label>
+        <input 
+          type="text" 
+          id="income-title" 
+          name="title" 
+          required 
+          placeholder="E.g., Freelance Project"
+          style="padding: 0.6rem 1rem; width: 100%; border-radius: 6px; border: 1px solid #d1d5db;"/>
+      </div>
+      
+      <div style="margin-bottom: 1.1rem;">
+        <label for="income-amount" style="font-weight: 500; display:block; margin-bottom: 0.37rem;">Amount (<span style="font-size: 0.92em;">INR</span>)</label>
+        <input 
+          type="number" 
+          id="income-amount" 
+          name="amount"
+          min="0.01" 
+          step="0.01" 
+          required 
+          placeholder="E.g., 15000.00"
+          style="padding: 0.6rem 1rem; width: 100%; border-radius: 6px; border: 1px solid #d1d5db;"/>
+      </div>
+      
+      <div style="margin-bottom: 1.1rem;">
+        <label for="income-date" style="font-weight: 500; display:block; margin-bottom: 0.37rem;">Date</label>
+        <input 
+          type="date" 
+          id="income-date" 
+          name="date" 
+          required 
+          style="padding: 0.6rem 1rem; width: 100%; border-radius: 6px; border: 1px solid #d1d5db;"/>
+      </div>
+      
+      <div style="margin-bottom: 1.5rem;">
+        <label for="income-description" style="font-weight: 500; display:block; margin-bottom: 0.37rem;">Description</label>
+        <textarea 
+          rows="5"
+          id="income-description"
+          name="description"
+          placeholder="Add any additional details about the income..."
+          style="padding: 0.6rem 1rem; width: 100%; border-radius: 6px; border: 1px solid #d1d5db; resize: vertical;"></textarea>
+      </div>
+      
+      <button type="submit" style="width: 100%; background-color: #2563eb; color: #fff; border: none; border-radius: 6px; padding: 0.85rem 1rem; font-size: 1.05em; font-weight: 600; box-shadow: 0 1.5px 4px rgba(37,99,235,0.06); cursor:pointer;">
+        Add Income
+      </button>
+    </form>
+  </div>
+</section>
+
+
+
+
+<!-- <section id="add-income">
   <h2>Add Income</h2>
   <form id="income-form">
     <label>Title:<br /><input type="text" id="income-title" required /></label><br />
@@ -130,7 +289,7 @@
     <label>Description:<br/><textarea rows="5"></textarea></label><br/>
     <button type="submit">Add Income</button>
   </form>
-</section>
+</section> -->
 
 
 <section id="expense-list">
@@ -172,13 +331,131 @@
   </section>
 
 
+<section id="reports" style="max-width: 700px; margin: 0 auto;">
+  <h2>Reports</h2>
+  
+  <!-- Controls for Chart Type and Time Period -->
+  <div style="display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+    <label>
+      Chart Type:<br />
+      <select id="chart-type-selector" style="width: 150px; padding: 0.4rem;">
+        <option value="bar">Bar</option>
+        <option value="line">Line</option>
+        <option value="pie">Pie</option>
+        <option value="doughnut">Doughnut</option>
+      </select>
+    </label>
 
-<section id="reports">
+    <label>
+      Time Period:<br />
+      <select id="time-period-selector" style="width: 150px; padding: 0.4rem;">
+        <option value="weekly">Weekly</option>
+        <option value="monthly" selected>Monthly</option>
+        <option value="yearly">Yearly</option>
+      </select>
+    </label>
+  </div>
+
+  <!-- Canvas elements for charts -->
+  <canvas id="expenses-category-chart" width="400" height="300"></canvas>
+  <hr></hr>
+  <canvas id="expenses-time-chart" width="400" height="300"></canvas>
+
+  <!-- Chart.js script -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    const ctxCategory = document.getElementById('expenses-category-chart').getContext('2d');
+    const ctxTime = document.getElementById('expenses-time-chart').getContext('2d');
+
+    // Placeholder sample data for categories and time, to be replaced with your actual data
+    const sampleCategoryData = {
+      weekly: { labels: ['Food', 'Travel', 'Shopping', 'Other'], data: [120, 90, 50, 30] },
+      monthly: { labels: ['Food', 'Travel', 'Shopping', 'Other'], data: [480, 360, 200, 120] },
+      yearly: { labels: ['Food', 'Travel', 'Shopping', 'Other'], data: [5760, 4320, 2400, 1440] }
+    };
+
+    const sampleTimeData = {
+      weekly: { labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], data: [20, 15, 25, 22, 30, 17, 18] },
+      monthly: { labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'], data: [120, 130, 110, 140] },
+      yearly: { labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], data: [400, 380, 420, 430, 410, 450, 470, 480, 460, 440, 430, 420] }
+    };
+
+    let categoryChart, timeChart;
+
+    function createChart(ctx, type, labels, data, title) {
+      return new Chart(ctx, {
+        type: type,
+        data: {
+          labels: labels,
+          datasets: [{
+            label: title,
+            data: data,
+            backgroundColor: [
+              'rgba(54, 162, 235, 0.7)',
+              'rgba(255, 99, 132, 0.7)',
+              'rgba(255, 206, 86, 0.7)',
+              'rgba(75, 192, 192, 0.7)'
+            ],
+            borderColor: 'rgba(0, 0, 0, 0.1)',
+            borderWidth: 1,
+            fill: false,
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              display: type !== 'bar' // Show legend except for bar charts
+            },
+            title: {
+              display: true,
+              text: title
+            }
+          },
+          scales: type === 'bar' || type === 'line' ? {
+            y: { beginAtZero: true }
+          } : {}
+        }
+      });
+    }
+
+    // Initial load - monthly, bar charts
+    function loadCharts(chartType, timePeriod) {
+      if (categoryChart) categoryChart.destroy();
+      if (timeChart) timeChart.destroy();
+
+      categoryChart = createChart(ctxCategory, chartType, sampleCategoryData[timePeriod].labels, sampleCategoryData[timePeriod].data, 'Expenses by Category');
+      timeChart = createChart(ctxTime, chartType, sampleTimeData[timePeriod].labels, sampleTimeData[timePeriod].data, 'Expenses over Time');
+    }
+
+    // Event listeners for selectors
+    document.getElementById('chart-type-selector').addEventListener('change', e => {
+      const chartType = e.target.value;
+      const timePeriod = document.getElementById('time-period-selector').value;
+      loadCharts(chartType, timePeriod);
+    });
+
+    document.getElementById('time-period-selector').addEventListener('change', e => {
+      const timePeriod = e.target.value;
+      const chartType = document.getElementById('chart-type-selector').value;
+      loadCharts(chartType, timePeriod);
+    });
+
+    // Load initial charts
+    loadCharts('bar', 'monthly');
+  </script>
+</section>
+
+
+
+
+<!-- <section id="reports">
   <h2>Reports</h2>
   <canvas id="expenses-category-chart" width="400" height="300"></canvas>
   <canvas id="expenses-time-chart" width="400" height="300"></canvas>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</section>
+</section> -->
 
 
 

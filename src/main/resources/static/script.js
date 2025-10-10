@@ -285,6 +285,18 @@ let recentlyDeletedIncomes = [];
     });
   });
 
+  fetch('/api/expenses/category-summary')
+    .then(response => response.json())
+    .then(data => {
+        const categories = Object.keys(data);
+        const amounts = Object.values(data);
+
+        // Update your chart here with the new data
+        updateChart(categories, amounts);
+    })
+    .catch(error => console.error('Error fetching category data:', error));
+
+
   Promise.all([fetchExpenses(), fetchIncomes()]).then(() => {
     document.querySelector('nav a[data-section="dashboard"]').click();
   });

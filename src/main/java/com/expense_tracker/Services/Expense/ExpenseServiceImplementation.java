@@ -1,7 +1,9 @@
 package com.expense_tracker.Services.Expense;
 
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -76,4 +78,22 @@ public class ExpenseServiceImplementation implements ExpenseService {
             throw new EntityNotFoundException("Entity is not present with is: " + id);
         }
     }
+
+
+
+    public Map<String, Double> getExpensesByCategory() {
+    List<Object[]> results = expenseRepository.findExpensesGroupedByCategory();
+    Map<String, Double> categoryExpenses = new HashMap<>();
+    for (Object[] result : results) {
+        String category = (String) result[0];
+        Double totalAmount = (Double) result[1];
+        categoryExpenses.put(category, totalAmount);
+    }
+    return categoryExpenses;
+}
+
+
+
+
+
 }

@@ -22,5 +22,7 @@ public interface ExpenseRepository extends JpaRepository<Expense, Long> {
 
         Optional<Expense> findFirstByOrderByDateDesc();
 
+        List<Object[]> findExpensesGroupedByCategory();
+
 
 }

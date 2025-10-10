@@ -26,15 +26,15 @@
   <div style="display:flex; justify-content: space-around; margin-bottom: 20px;">
     <div style="background:#e3f2fd; padding:15px; border-radius:8px; width: 28%; text-align:center;">
       <h3>Total Income</h3>
-      <p id="total-income" style="font-size: 1.5em;">$0</p>
+      <p id="total-income" style="font-size: 1.5em;">0</p>
     </div>
     <div style="background:#ffe3e3; padding:15px; border-radius:8px; width: 28%; text-align:center;">
       <h3>Total Expenses</h3>
-      <p id="total-expenses" style="font-size: 1.5em;">$0</p>
+      <p id="total-expenses" style="font-size: 1.5em;">0</p>
     </div>
     <div style="background:#e3ffe3; padding:15px; border-radius:8px; width: 28%; text-align:center;">
       <h3>Balance</h3>
-      <p id="balance" style="font-size: 1.5em;">$0</p>
+      <p id="balance" style="font-size: 1.5em;">0</p>
     </div>
   </div>
   <h2>Recent Transactions</h2>
@@ -50,7 +50,7 @@
       </tr>
     </thead>
     <tbody id="recent-transactions">
-      <!-- Transactions rows here -->
+      <!-- Transactions rows  -->
     </tbody>
   </table>
 </section>
@@ -131,7 +131,7 @@
       </div>
 
       <!-- Receipt Upload -->
-      <div style="margin-bottom: 1.8rem;">
+      <!-- <div style="margin-bottom: 1.8rem;">
         <label for="expense-receipt" style="font-weight: 500; display:block; margin-bottom: 0.4rem;">Attach Receipt (optional)</label>
         <input 
           type="file" 
@@ -140,7 +140,7 @@
           accept=".jpg,.jpeg,.png,.pdf"
           style="padding: 0.45rem 0;"/>
         <small style="color: #8b8f96; font-size: 0.93em;">Max file size: 2MB. Formats: JPG, PNG, PDF.</small>
-      </div>
+      </div> -->
       
       <!-- Submit Button -->
       <button type="submit" style="width: 100%; background-color: #2563eb; color: #fff; border: none; border-radius: 6px; padding: 0.85rem 1rem; font-size: 1.05em; font-weight: 600; box-shadow: 0 1.5px 4px rgba(37,99,235,0.06); cursor:pointer;">
@@ -247,7 +247,7 @@
   </section>
 
 
-<section id="reports" style="max-width: 700px; margin: 0 auto;">
+<section id="reports" style="max-width: 500px; margin: 0 auto;">
   <h2>Reports</h2>
   
   <!-- Controls for Chart Type and Time Period -->
@@ -305,16 +305,21 @@
         data: {
           labels: labels,
           datasets: [{
+            
             label: title,
             data: data,
             backgroundColor: [
               'rgba(54, 162, 235, 0.7)',
               'rgba(255, 99, 132, 0.7)',
               'rgba(255, 206, 86, 0.7)',
-              'rgba(75, 192, 192, 0.7)'
+              'rgba(75, 192, 192, 0.7)',
+              'rgba(153, 102, 255, 0.7)',  // Purple
+              'rgba(255, 159, 64, 0.7)',   // Orange
+              'rgba(54, 255, 162, 0.7)'    // Mint green
+
             ],
-            borderColor: 'rgba(0, 0, 0, 0.1)',
-            borderWidth: 1,
+            borderColor: 'rgba(0, 0, 0, 0.5)',
+            borderWidth: 2,
             fill: false,
           }]
         },

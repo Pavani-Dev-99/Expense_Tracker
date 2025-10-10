@@ -1,5 +1,6 @@
 package com.expense_tracker.Controller;
 
+import java.util.Map;
 import java.util.Optional;
 
 import org.apache.catalina.connector.Response;
@@ -91,6 +92,15 @@ public class ExpenseController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Something went wrong");
         }
     }
+
+
+
+    @GetMapping("/api/expenses/category-summary")
+    public ResponseEntity<Map<String, Double>> getCategorySummary() {
+    Map<String, Double> categorySummary = expenseService.getExpensesByCategory();
+    return ResponseEntity.ok(categorySummary);
+}
+
 
 
 

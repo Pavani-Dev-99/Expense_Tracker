@@ -13,7 +13,7 @@ View summaries to understand your spending habits
 Simple interface focused on usability
 
 Technologies
-Java
+SpringBoot
 
 How to Use
 Clone the repository

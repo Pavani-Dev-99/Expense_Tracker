@@ -1,9 +1,6 @@
 package com.expense_tracker.Controller;
 
 import java.util.Map;
-import java.util.Optional;
-
-import org.apache.catalina.connector.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -21,7 +18,6 @@ import com.expense_tracker.Entity.Expense;
 import com.expense_tracker.Services.Expense.ExpenseService;
 
 import jakarta.persistence.EntityNotFoundException;
-import lombok.RequiredArgsConstructor;
 
 @CrossOrigin("*")
 

@@ -9,8 +9,7 @@ public class HelloWorldTest {
         assertEquals("Hello, World!", new HelloWorldTest().greet());
     }
 
-    private Object greet() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'greet'");
+    private String greet() {
+        return "Hello, World!";
     }
 }

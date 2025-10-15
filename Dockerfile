@@ -8,17 +8,20 @@ WORKDIR /app
 COPY mvnw pom.xml ./
 COPY .mvn .mvn
 
-# Step 4: Download dependencies
+# Step 4: Make mvnw executable inside Docker container
+RUN chmod +x mvnw
+
+# Step 5: Download dependencies
 RUN ./mvnw dependency:go-offline
 
-# Step 5: Copy project source code
+# Step 6: Copy project source code
 COPY src ./src
 
-# Step 6: Build the project (skip tests for faster build)
+# Step 7: Build the project (skip tests for faster build)
 RUN ./mvnw clean package -DskipTests
 
-# Step 7: Expose port 8080
+# Step 8: Expose dynamic port (Railway sets $PORT)
 EXPOSE 8080
 
-# Step 8: Run the Spring Boot app
+# Step 9: Run the Spring Boot app
 CMD ["java", "-jar", "target/Expense_Tracker-0.0.1-SNAPSHOT.jar"]

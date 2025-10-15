@@ -24,4 +24,4 @@ RUN ./mvnw clean package -DskipTests
 EXPOSE 8080
 
 # Step 9: Run the Spring Boot app
-CMD ["java", "-jar", "target/Expense_Tracker-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "target/Expense-Tracker-0.0.1-SNAPSHOT.jar"]

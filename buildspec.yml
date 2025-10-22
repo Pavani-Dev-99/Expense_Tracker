@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+    commands:
+      - echo Installing Maven dependencies
+      - ./mvnw clean install -DskipTests
+  build:
+    commands:
+      - echo Building Expense Tracker JAR
+      - ./mvnw package -DskipTests
+  post_build:
+    commands:
+      - echo Build completed successfully on `date`
+
+artifacts:
+  files:
+    - target/*.jar
+  discard-paths: yes

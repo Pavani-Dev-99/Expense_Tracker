@@ -5,14 +5,19 @@ phases:
     runtime-versions:
       java: corretto17
     commands:
-      - echo Installing Maven dependencies
+      - echo "Verifying Java and Maven"
+      - java -version
+      - mvn --version
+      - echo "Install dependencies if any (skip if none)"
+
   build:
     commands:
-      - echo Building JAR
+      - echo "Building Personal Notes App JAR"
       - mvn clean package -DskipTests
+
   post_build:
     commands:
-      - echo Build completed successfully on `date`
+      - echo "Build completed successfully on `date`"
 
 artifacts:
   files:
